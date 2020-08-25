@@ -2,6 +2,7 @@ package com.example.studentcatalog.controller;
 
 import com.example.studentcatalog.models.Student;
 import com.example.studentcatalog.service.StudentService;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
@@ -11,6 +12,8 @@ import java.util.Optional;
 
 
 @RestController
+
+@CrossOrigin(origins = "http://localhost:3000")
 public class StudentController {
 
 
