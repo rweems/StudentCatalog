@@ -2,7 +2,7 @@ import React, {Component} from "react";
 import DataService from "../services/DataService";
 import axios from 'axios';
 
-class ViewStudents extends Component {
+class ViewProfStudents extends Component {
 
     constructor(props) {
         super(props);
@@ -13,7 +13,8 @@ class ViewStudents extends Component {
         student: {
             id: '',
             firstName: '',
-            lastName: ''
+            lastName: '',
+            ssn: ''
         },
         students: []
     };
@@ -30,7 +31,7 @@ class ViewStudents extends Component {
         return (
             <div>
                 <div className="container">
-                    <h1>Student View</h1>
+                    <h1>Professor View</h1>
                     <hr />
                     <h3>Students</h3>
                     <div className="container">
@@ -39,7 +40,8 @@ class ViewStudents extends Component {
                             <tr>
                                 <th>Id | </th>
                                 <th>First Name | </th>
-                                <th>Last Name</th>
+                                <th>Last Name |</th>
+                                <th>SSN</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -50,6 +52,7 @@ class ViewStudents extends Component {
                                             <td>{student.id}</td>
                                             <td>{student.firstName}</td>
                                             <td>{student.lastName}</td>
+                                            <td>{student.ssn}</td>
                                         </tr>)
                                 )
                             }
@@ -65,4 +68,4 @@ class ViewStudents extends Component {
 
 }
 
-export default ViewStudents;
+export default ViewProfStudents;

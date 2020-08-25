@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 import AddStudent from "./components/AddStudent";
 import ViewStudents from "./components/ViewStudents";
 import {BrowserRouter} from "react-router-dom";
+import ViewProfStudents from "./components/ViewProfStudents";
 
 class App extends Component {
     render() {
@@ -13,7 +14,8 @@ class App extends Component {
             <Router>
                 <div>
                     <Switch>
-                        <Route path="/view" component={ViewStudents}/>
+                        <Route path="/students/show" component={ViewStudents}/>
+                        <Route path="/professor/show" component={ViewProfStudents}/>
                         <Route path="/add" component={AddStudent} />
                     </Switch>
                 </div>
