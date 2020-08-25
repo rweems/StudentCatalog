@@ -20,6 +20,9 @@ public class StudentCatalogApplication {
 		studentController.save(student);
 
 		Student student2 = new Student();
+		student2.setFirstName("Amber");
+		student2.setLastName("Crook");
+		student2.setSSN(2345);
 		studentController.save(student2);
 
 		System.out.println("student 1: " + student.getId());
