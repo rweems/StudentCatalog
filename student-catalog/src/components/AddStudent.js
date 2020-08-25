@@ -1,22 +1,80 @@
 import React, {Component} from "react";
+import axios from 'axios';
 
 class AddStudent extends Component {
+
+    state = {
+        firstName: '',
+        lastName: '',
+        ssn: ''
+    };
 
     toggleForm = () => {
         this.setState((state, props) => {
             return ({ isFormDisplayed: !state.isFormDisplayed })
         })
-    }
+    };
+
+    // addStudent() {
+    //
+    //     // axios.post('https://localhost:8080/add', )
+    //     //     .then(response => this.setState({ articleId: response.data.id }));
+    //
+    // }
+
+    handleSubmit = (event) => {
+        event.preventDefault();
+
+        const student = {
+            firstName: this.state.firstName,
+            lastName: this.state.lastName,
+            ssn: this.state.ssn
+        };
+        console.log(this.state.firstName);
+        console.log(this.state.lastName);
+        console.log(this.state.ssn);
+        axios.post('http://localhost:8080/add', student )
+            .then(response => {
+                console.log(response)
+                console.log(response.data)
+            });
+
+    };
+
+    handleChange = (event) =>{
+        this.setState(
+            {
+                [event.target.name]: event.target.value
+            });
+    };
 
     render() {
         return (
             <div>
-                <button>Add student</button>
+                <h2>Student Form</h2>
+                <form onSubmit = {this.handleSubmit}>
+
+                    <label>
+                        First Name: <input type="text" name="firstName" onChange={this.handleChange}/>
+                    </label>
+                    <br />
+                    <label>
+                        Last Name: <input type="text" name="lastName" onChange={this.handleChange}/>
+                    </label>
+                    <br />
+                    <label>
+                        SSN: <input type="text" name="ssn" onChange={this.handleChange}/>
+                    </label>
+                    <br/>
+                    <button type="submit">Add Student</button>
+                </form>
             </div>
         )
 
 
     }
+
+
 
 }
 
