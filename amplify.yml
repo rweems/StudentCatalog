@@ -9,11 +9,11 @@ frontend:
     build:
       commands:
         - npm run build
-        - npm start
   artifacts:
     # IMPORTANT - Please verify your build output directory
-    baseDirectory: /student-catalog/public
+    baseDirectory: build
     files:
       - '**/*'
   cache:
-    paths: []
+    paths:
+      - node_modules/**/*
