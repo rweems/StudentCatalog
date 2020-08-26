@@ -15,12 +15,6 @@ class AddStudent extends Component {
         })
     };
 
-    // addStudent() {
-    //
-    //     // axios.post('https://localhost:8080/add', )
-    //     //     .then(response => this.setState({ articleId: response.data.id }));
-    //
-    // }
 
     handleSubmit = (event) => {
         event.preventDefault();
@@ -38,6 +32,7 @@ class AddStudent extends Component {
                 console.log(response)
                 console.log(response.data)
             });
+        this.props.history.push('/students/show');
 
     };
 

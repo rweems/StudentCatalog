@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import DataService from "../services/DataService";
+
 import axios from 'axios';
 
 class ViewProfStudents extends Component {
@@ -38,9 +38,9 @@ class ViewProfStudents extends Component {
                         <table className="table">
                             <thead>
                             <tr>
-                                <th>Id | </th>
-                                <th>First Name | </th>
-                                <th>Last Name |</th>
+                                <th>Id </th>
+                                <th>First Name</th>
+                                <th>Last Name</th>
                                 <th>SSN</th>
                             </tr>
                             </thead>

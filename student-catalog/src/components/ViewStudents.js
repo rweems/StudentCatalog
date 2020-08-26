@@ -1,6 +1,7 @@
 import React, {Component} from "react";
-import DataService from "../services/DataService";
+
 import axios from 'axios';
+
 
 class ViewStudents extends Component {
 
@@ -26,19 +27,25 @@ class ViewStudents extends Component {
         })
     };
 
+    goToAdd = () => {
+
+    };
+
     render() {
         return (
             <div>
                 <div className="container">
                     <h1>Student View</h1>
+                    {/*<Link to="/add" className="btn btn-outline-secondary">Add Student</Link>*/}
+                    <button onClick={event =>  window.location.href='/add'}>Add Student</button>
                     <hr />
                     <h3>Students</h3>
                     <div className="container">
                         <table className="table">
                             <thead>
                             <tr>
-                                <th>Id | </th>
-                                <th>First Name | </th>
+                                <th>Id </th>
+                                <th>First Name </th>
                                 <th>Last Name</th>
                             </tr>
                             </thead>
