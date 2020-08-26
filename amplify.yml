@@ -4,10 +4,11 @@ frontend:
     preBuild:
       commands:
         - cd student-catalog
+        - npm start
 
     build:
       commands:
-        - npm start
+
   artifacts:
     # IMPORTANT - Please verify your build output directory
     baseDirectory: /public
