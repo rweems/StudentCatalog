@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 
 import './App.css';
 
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import {BrowserRouter as Router, Redirect, Route, Switch} from "react-router-dom";
 import AddStudent from "./components/AddStudent";
 import ViewStudents from "./components/ViewStudents";
 
@@ -33,6 +33,7 @@ class App extends Component {
                 <Router>
 
                         <Switch>
+                            <Route exact path="/"> <Redirect to="/students/show"/></Route>
                             <Route path="/students/show" component={ViewStudents}/>
                             <Route path="/professor/show" component={ViewProfStudents}/>
                             <Route path="/add" component={AddStudent} />
