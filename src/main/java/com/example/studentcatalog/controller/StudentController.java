@@ -34,9 +34,10 @@ public class StudentController {
     }
 
     @GetMapping("/find/{id}")
-    public String findById(@PathVariable(name = "id") Long id){
+    public Student findById(@PathVariable("id") Long id){
         Optional<Student> student = studentService.findStudentById(id);
-        return student.get().getFirstName();
+
+        return student.get();
     }
 
     @PostMapping("/add")

@@ -27,9 +27,6 @@ class ViewStudents extends Component {
         })
     };
 
-    goToAdd = () => {
-
-    };
 
     render() {
         return (

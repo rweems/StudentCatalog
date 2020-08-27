@@ -10,9 +10,15 @@ import ViewProfStudents from "./components/ViewProfStudents";
 
 import Form from "reactstrap/es/Form";
 import {Button, FormControl, Nav, Navbar} from "react-bootstrap";
+import Student from "./components/Student";
 
 
-class App extends Component {
+function goToSingle(input) {
+    window.location.href = "/find/" + input;
+
+}
+
+class App extends Component {s
     render() {
         return (
             <div>
@@ -25,8 +31,8 @@ class App extends Component {
                         <Nav.Link href="/professor/show">Professor View</Nav.Link>
                     </Nav>
                     <Form inline>
-                        <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-                        <Button variant="outline-info">Search</Button>
+                        <FormControl type="text" placeholder="Search" id="search" className="mr-sm-2" />
+                        <Button variant="outline-info" onClick = {() => goToSingle(document.getElementById("search").value)}>Search</Button>
                     </Form>
                 </Navbar>
 
@@ -37,6 +43,7 @@ class App extends Component {
                             <Route path="/students/show" component={ViewStudents}/>
                             <Route path="/professor/show" component={ViewProfStudents}/>
                             <Route path="/add" component={AddStudent} />
+                            <Route path="/find/:id" component={Student}  />
                         </Switch>
 
                 </Router>

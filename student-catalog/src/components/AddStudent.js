@@ -1,4 +1,4 @@
-import React, {Component} from "react";
+import React, {Component, useState} from "react";
 import axios from 'axios';
 
 class AddStudent extends Component {
@@ -9,11 +9,6 @@ class AddStudent extends Component {
         ssn: ''
     };
 
-    toggleForm = () => {
-        this.setState((state, props) => {
-            return ({ isFormDisplayed: !state.isFormDisplayed })
-        })
-    };
 
 
     handleSubmit = (event) => {
