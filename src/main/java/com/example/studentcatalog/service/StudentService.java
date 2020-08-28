@@ -18,8 +18,8 @@ public class StudentService {
         this.studentRepository = studentRepository;
     }
 
-    public Student saveStudent(Student student) {
-        return studentRepository.save(student);
+    public void saveStudent(Student student) {
+        studentRepository.save(student);
     }
 
     public List<Student> getAllStudents(){
@@ -28,6 +28,15 @@ public class StudentService {
 
     public void deleteStudent(Long id) {
         studentRepository.deleteById(id);
+    }
+
+    public void updateStudent(Long id, Student newStudent) {
+        Optional<Student> student = findStudentById(id);
+        System.out.println(student.get().getFirstName());
+        student.get().setFirstName(newStudent.getFirstName());
+        student.get().setLastName(newStudent.getLastName());
+        student.get().setSSN(newStudent.getSSN());
+        studentRepository.save(student.get());
     }
 
     public Optional<Student> findStudentById(Long Id) {

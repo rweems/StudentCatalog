@@ -36,13 +36,30 @@ public class StudentController {
     @GetMapping("/find/{id}")
     public Student findById(@PathVariable("id") Long id){
         Optional<Student> student = studentService.findStudentById(id);
-
-        return student.get();
+        return student.orElse(null);
     }
 
     @PostMapping("/add")
     public void add(@RequestBody Student student ){
         save(student);
+    }
+
+    @PutMapping("/update/{id}")
+    public void updateStudent(@PathVariable Long id, @RequestBody Student newStudent){
+        Optional<Student> student = studentService.findStudentById(id);
+        if(student.isPresent()){
+              studentService.updateStudent(id, newStudent);
+        }
+        else {
+            System.out.println("nothing found");
+        }
+
+
+    }
+
+    @DeleteMapping("/delete/{id}")
+    public void deleteStudent(@PathVariable Long id) {
+        studentService.deleteStudent(id);
     }
 
 
