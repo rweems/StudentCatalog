@@ -52,7 +52,7 @@ class ViewProfStudents extends Component {
                                             <td>{student.id}</td>
                                             <td>{student.firstName}</td>
                                             <td>{student.lastName}</td>
-                                            <td>{student.ssn}</td>
+                                            <td>***-**-{student.ssn}</td>
                                         </tr>)
                                 )
                             }

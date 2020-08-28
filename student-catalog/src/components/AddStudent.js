@@ -53,7 +53,7 @@ class AddStudent extends Component {
                     </label>
                     <br />
                     <label>
-                        SSN: <input type="text" name="ssn" onChange={this.handleChange}/>
+                        SSN: <input type="text" name="ssn" onChange={this.handleChange} maxLength={4}/>
                     </label>
                     <br/>
                     <button type="submit">Add Student</button>
