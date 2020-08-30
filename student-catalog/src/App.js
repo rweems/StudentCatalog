@@ -11,6 +11,7 @@ import ViewProfStudents from "./components/ViewProfStudents";
 import Form from "reactstrap/es/Form";
 import {Button, FormControl, Nav, Navbar} from "react-bootstrap";
 import Student from "./components/Student";
+import UpdateStudent from "./components/UpdateStudent";
 
 
 function goToSingle(input) {
@@ -44,6 +45,7 @@ class App extends Component {s
                             <Route path="/professor/show" component={ViewProfStudents}/>
                             <Route path="/add" component={AddStudent} />
                             <Route path="/find/:id" component={Student}  />
+                            <Route path="/update/:id" component={UpdateStudent} />
                         </Switch>
 
                 </Router>

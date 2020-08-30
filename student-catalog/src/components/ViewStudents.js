@@ -54,6 +54,7 @@ class ViewStudents extends Component {
                                             <td>{student.id}</td>
                                             <td>{student.firstName}</td>
                                             <td>{student.lastName}</td>
+                                            <td><button onClick={() => window.location.href=`/update/${student.id}` } studentId={student.id}>Edit</button></td>
                                         </tr>)
                                 )
                             }
