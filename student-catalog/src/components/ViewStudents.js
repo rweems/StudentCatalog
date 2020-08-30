@@ -27,6 +27,13 @@ class ViewStudents extends Component {
         })
     };
 
+    deleteStudent = (id) => {
+        axios.delete(`http://localhost:8080/delete/${id}`).then(res => {
+            console.log("student deleted");
+            window.location.reload(true);
+        })
+    }
+
 
     render() {
         return (
@@ -54,7 +61,8 @@ class ViewStudents extends Component {
                                             <td>{student.id}</td>
                                             <td>{student.firstName}</td>
                                             <td>{student.lastName}</td>
-                                            <td><button onClick={() => window.location.href=`/update/${student.id}` } studentId={student.id}>Edit</button></td>
+                                            <td><button onClick={() => window.location.href=`/update/${student.id}`}>Edit</button></td>
+                                            <td><button onClick={() => this.deleteStudent(student.id)}>Delete</button></td>
                                         </tr>)
                                 )
                             }

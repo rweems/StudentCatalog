@@ -39,7 +39,7 @@ class UpdateStudent extends Component {
     render() {
         return (
             <div>
-                <h2>Student Form</h2>
+                <h2>Update Form</h2>
                 <form onSubmit = {this.handleUpdate}>
 
                     <label>
@@ -54,7 +54,7 @@ class UpdateStudent extends Component {
                         SSN: <input type="text" name="ssn" onChange={this.handleChange} maxLength={4}/>
                     </label>
                     <br/>
-                    <button type="submit">Add Student</button>
+                    <button type="submit">Update Student</button>
                 </form>
             </div>
         )

@@ -1,12 +1,15 @@
 import React, {Component, useState} from "react";
 import axios from 'axios';
+import {Redirect} from "react-router";
+import ViewStudents from "./ViewStudents";
 
 class AddStudent extends Component {
 
     state = {
         firstName: '',
         lastName: '',
-        ssn: ''
+        ssn: '',
+        redirect: false
     };
 
 
@@ -27,9 +30,10 @@ class AddStudent extends Component {
                 console.log(response)
                 console.log(response.data)
             });
-        this.props.history.push('/students/show');
 
+        window.location.href = "/students/show";
     };
+
 
     handleChange = (event) =>{
         this.setState(
