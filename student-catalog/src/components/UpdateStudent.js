@@ -1,5 +1,6 @@
-import React, {Component, useState} from "react";
+import React, {Component} from "react";
 import axios from 'axios';
+import Button from "react-bootstrap/Button";
 
 class UpdateStudent extends Component {
 
@@ -11,7 +12,6 @@ class UpdateStudent extends Component {
     studentId;
 
 
-
     handleUpdate = (event) => {
         event.preventDefault();
 
@@ -20,7 +20,7 @@ class UpdateStudent extends Component {
             lastName: this.state.lastName,
             ssn: this.state.ssn
         };
-        axios.put(`http://localhost:8080/update/${this.props.match.params.id}`, student )
+        axios.put(`http://localhost:8080/update/${this.props.match.params.id}`, student)
             .then(response => {
                 console.log(response)
                 console.log(response.data)
@@ -29,7 +29,7 @@ class UpdateStudent extends Component {
 
     };
 
-    handleChange = (event) =>{
+    handleChange = (event) => {
         this.setState(
             {
                 [event.target.name]: event.target.value
@@ -40,28 +40,27 @@ class UpdateStudent extends Component {
         return (
             <div>
                 <h2>Update Form</h2>
-                <form onSubmit = {this.handleUpdate}>
+                <form onSubmit={this.handleUpdate}>
 
                     <label>
                         First Name: <input type="text" name="firstName" onChange={this.handleChange}/>
                     </label>
-                    <br />
+                    <br/>
                     <label>
                         Last Name: <input type="text" name="lastName" onChange={this.handleChange}/>
                     </label>
-                    <br />
+                    <br/>
                     <label>
                         SSN: <input type="text" name="ssn" onChange={this.handleChange} maxLength={4}/>
                     </label>
                     <br/>
-                    <button type="submit">Update Student</button>
+                    <Button variant="outline-secondary" type="submit">Update Student</Button>
                 </form>
             </div>
         )
 
 
     }
-
 
 
 }

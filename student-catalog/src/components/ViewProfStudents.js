@@ -24,7 +24,7 @@ class ViewProfStudents extends Component {
     display = () => {
         axios.get('http://localhost:8080/students').then(res => {
             const studentList = res.data;
-            this.setState({ students: studentList });
+            this.setState({students: studentList});
         })
     };
 
@@ -33,14 +33,14 @@ class ViewProfStudents extends Component {
             <div>
                 <div className="container">
                     <h1>Professor View</h1>
-                    <br />
-                    <br />
+                    <br/>
+                    <br/>
                     <h3>Students</h3>
                     <div className="container">
                         <Table className="table" striped>
                             <thead>
                             <tr>
-                                <th>Id </th>
+                                <th>Id</th>
                                 <th>First Name</th>
                                 <th>Last Name</th>
                                 <th>SSN</th>
@@ -49,7 +49,7 @@ class ViewProfStudents extends Component {
                             <tbody>
                             {
                                 this.state.students.map(
-                                    (student) =>(
+                                    (student) => (
                                         <tr key={student.id}>
                                             <td>{student.id}</td>
                                             <td>{student.firstName}</td>

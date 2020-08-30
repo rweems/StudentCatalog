@@ -19,7 +19,9 @@ function goToSingle(input) {
 
 }
 
-class App extends Component {s
+class App extends Component {
+    s
+
     render() {
         return (
             <div>
@@ -32,21 +34,22 @@ class App extends Component {s
                         <Nav.Link href="/professor/show">Professor View</Nav.Link>
                     </Nav>
                     <Form inline>
-                        <FormControl type="text" placeholder="Search" id="search" className="mr-sm-2" />
-                        <Button variant="outline-info" onClick = {() => goToSingle(document.getElementById("search").value)}>Search</Button>
+                        <FormControl type="text" placeholder="Search" id="search" className="mr-sm-2"/>
+                        <Button variant="outline-info"
+                                onClick={() => goToSingle(document.getElementById("search").value)}>Search</Button>
                     </Form>
                 </Navbar>
 
                 <Router>
 
-                        <Switch>
-                            <Route exact path="/"> <Redirect to="/students/show"/></Route>
-                            <Route path="/students/show" component={ViewStudents}/>
-                            <Route path="/professor/show" component={ViewProfStudents}/>
-                            <Route path="/add" component={AddStudent} />
-                            <Route path="/find/:id" component={Student}  />
-                            <Route path="/update/:id" component={UpdateStudent} />
-                        </Switch>
+                    <Switch>
+                        <Route exact path="/"> <Redirect to="/students/show"/></Route>
+                        <Route path="/students/show" component={ViewStudents}/>
+                        <Route path="/professor/show" component={ViewProfStudents}/>
+                        <Route path="/add" component={AddStudent}/>
+                        <Route path="/find/:id" component={Student}/>
+                        <Route path="/update/:id" component={UpdateStudent}/>
+                    </Switch>
 
                 </Router>
             </div>

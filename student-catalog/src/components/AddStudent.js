@@ -1,7 +1,5 @@
-import React, {Component, useState} from "react";
+import React, {Component} from "react";
 import axios from 'axios';
-import {Redirect} from "react-router";
-import ViewStudents from "./ViewStudents";
 import Button from "react-bootstrap/Button";
 
 class AddStudent extends Component {
@@ -12,7 +10,6 @@ class AddStudent extends Component {
         ssn: '',
         redirect: false
     };
-
 
 
     handleSubmit = (event) => {
@@ -26,7 +23,7 @@ class AddStudent extends Component {
         console.log(this.state.firstName);
         console.log(this.state.lastName);
         console.log(this.state.ssn);
-        axios.post('http://localhost:8080/add', student )
+        axios.post('http://localhost:8080/add', student)
             .then(response => {
                 console.log(response)
                 console.log(response.data)
@@ -36,7 +33,7 @@ class AddStudent extends Component {
     };
 
 
-    handleChange = (event) =>{
+    handleChange = (event) => {
         this.setState(
             {
                 [event.target.name]: event.target.value
@@ -47,16 +44,16 @@ class AddStudent extends Component {
         return (
             <div>
                 <h2>Student Form</h2>
-                <form onSubmit = {this.handleSubmit}>
+                <form onSubmit={this.handleSubmit}>
 
                     <label>
                         First Name: <input type="text" name="firstName" onChange={this.handleChange}/>
                     </label>
-                    <br />
+                    <br/>
                     <label>
                         Last Name: <input type="text" name="lastName" onChange={this.handleChange}/>
                     </label>
-                    <br />
+                    <br/>
                     <label>
                         SSN: <input type="text" name="ssn" onChange={this.handleChange} maxLength={4}/>
                     </label>
@@ -68,7 +65,6 @@ class AddStudent extends Component {
 
 
     }
-
 
 
 }

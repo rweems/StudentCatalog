@@ -13,7 +13,6 @@ public class StudentService {
     private StudentRepository studentRepository;
 
 
-
     public StudentService(StudentRepository studentRepository) {
         this.studentRepository = studentRepository;
     }
@@ -22,7 +21,7 @@ public class StudentService {
         studentRepository.save(student);
     }
 
-    public List<Student> getAllStudents(){
+    public List<Student> getAllStudents() {
         return studentRepository.findAll();
     }
 

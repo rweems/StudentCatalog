@@ -1,9 +1,10 @@
 import React, {Component} from "react";
 
 import axios from 'axios';
-import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import Table from "react-bootstrap/Table";
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faTrash, faUserEdit} from '@fortawesome/free-solid-svg-icons';
 
 
 class ViewStudents extends Component {
@@ -26,7 +27,7 @@ class ViewStudents extends Component {
     display = () => {
         axios.get('http://localhost:8080/students').then(res => {
             const studentList = res.data;
-            this.setState({ students: studentList });
+            this.setState({students: studentList});
         })
     };
 
@@ -44,16 +45,16 @@ class ViewStudents extends Component {
                 <div className="container">
                     <h1>Student View</h1>
                     {/*<Link to="/add" className="btn btn-outline-secondary">Add Student</Link>*/}
-                    <Button variant="outline-dark" onClick={event =>  window.location.href='/add'}>Add Student</Button>
-                    <br />
-                    <br />
+                    <Button variant="outline-dark" onClick={event => window.location.href = '/add'}>Add Student</Button>
+                    <br/>
+                    <br/>
                     <h3>Students</h3>
                     <div className="container">
                         <Table className="table" striped>
                             <thead>
                             <tr>
-                                <th>Id </th>
-                                <th>First Name </th>
+                                <th>Id</th>
+                                <th>First Name</th>
                                 <th>Last Name</th>
                                 <th/>
                                 <th/>
@@ -61,18 +62,26 @@ class ViewStudents extends Component {
                             </thead>
                             <tbody>
 
-                                {
-                                    this.state.students.map(
-                                        (student) =>(
-                                            <tr key={student.id}>
-                                                <td>{student.id}</td>
-                                                <td>{student.firstName}</td>
-                                                <td>{student.lastName}</td>
-                                                <td><Button variant="outline-secondary" onClick={() => window.location.href=`/update/${student.id}`}>Edit</Button></td>
-                                                <td><Button variant="outline-danger" onClick={() => this.deleteStudent(student.id)}>Delete</Button></td>
-                                            </tr>)
-                                    )
-                                }
+                            {
+
+                                this.state.students.map(
+                                    (student) => (
+                                        <tr key={student.id}>
+                                            <td>{student.id}</td>
+                                            <td>{student.firstName}</td>
+                                            <td>{student.lastName}</td>
+                                            <td><Button variant="outline-secondary"
+                                                        onClick={() => window.location.href = `/update/${student.id}`}>
+                                                <FontAwesomeIcon icon={faUserEdit}/>
+                                            </Button></td>
+                                            <td><Button variant="outline-danger"
+                                                        onClick={() => this.deleteStudent(student.id)}>
+                                                <FontAwesomeIcon icon={faTrash}/>
+                                            </Button></td>
+
+                                        </tr>)
+                                )
+                            }
 
                             </tbody>
                         </Table>
