@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 
 import axios from 'axios';
+import {Table} from "react-bootstrap";
 
 class ViewProfStudents extends Component {
 
@@ -32,10 +33,11 @@ class ViewProfStudents extends Component {
             <div>
                 <div className="container">
                     <h1>Professor View</h1>
-                    <hr />
+                    <br />
+                    <br />
                     <h3>Students</h3>
                     <div className="container">
-                        <table className="table">
+                        <Table className="table" striped>
                             <thead>
                             <tr>
                                 <th>Id </th>
@@ -57,7 +59,7 @@ class ViewProfStudents extends Component {
                                 )
                             }
                             </tbody>
-                        </table>
+                        </Table>
                     </div>
                 </div>
             </div>

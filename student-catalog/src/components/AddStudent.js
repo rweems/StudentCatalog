@@ -2,6 +2,7 @@ import React, {Component, useState} from "react";
 import axios from 'axios';
 import {Redirect} from "react-router";
 import ViewStudents from "./ViewStudents";
+import Button from "react-bootstrap/Button";
 
 class AddStudent extends Component {
 
@@ -60,7 +61,7 @@ class AddStudent extends Component {
                         SSN: <input type="text" name="ssn" onChange={this.handleChange} maxLength={4}/>
                     </label>
                     <br/>
-                    <button type="submit">Add Student</button>
+                    <Button variant="outline-success" type="submit">Add Student</Button>
                 </form>
             </div>
         )

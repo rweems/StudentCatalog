@@ -1,6 +1,9 @@
 import React, {Component} from "react";
 
 import axios from 'axios';
+import Card from "react-bootstrap/Card";
+import Button from "react-bootstrap/Button";
+import Table from "react-bootstrap/Table";
 
 
 class ViewStudents extends Component {
@@ -41,33 +44,38 @@ class ViewStudents extends Component {
                 <div className="container">
                     <h1>Student View</h1>
                     {/*<Link to="/add" className="btn btn-outline-secondary">Add Student</Link>*/}
-                    <button onClick={event =>  window.location.href='/add'}>Add Student</button>
-                    <hr />
+                    <Button variant="outline-dark" onClick={event =>  window.location.href='/add'}>Add Student</Button>
+                    <br />
+                    <br />
                     <h3>Students</h3>
                     <div className="container">
-                        <table className="table">
+                        <Table className="table" striped>
                             <thead>
                             <tr>
                                 <th>Id </th>
                                 <th>First Name </th>
                                 <th>Last Name</th>
+                                <th/>
+                                <th/>
                             </tr>
                             </thead>
                             <tbody>
-                            {
-                                this.state.students.map(
-                                    (student) =>(
-                                        <tr key={student.id}>
-                                            <td>{student.id}</td>
-                                            <td>{student.firstName}</td>
-                                            <td>{student.lastName}</td>
-                                            <td><button onClick={() => window.location.href=`/update/${student.id}`}>Edit</button></td>
-                                            <td><button onClick={() => this.deleteStudent(student.id)}>Delete</button></td>
-                                        </tr>)
-                                )
-                            }
+
+                                {
+                                    this.state.students.map(
+                                        (student) =>(
+                                            <tr key={student.id}>
+                                                <td>{student.id}</td>
+                                                <td>{student.firstName}</td>
+                                                <td>{student.lastName}</td>
+                                                <td><Button variant="outline-secondary" onClick={() => window.location.href=`/update/${student.id}`}>Edit</Button></td>
+                                                <td><Button variant="outline-danger" onClick={() => this.deleteStudent(student.id)}>Delete</Button></td>
+                                            </tr>)
+                                    )
+                                }
+
                             </tbody>
-                        </table>
+                        </Table>
                     </div>
                 </div>
             </div>
