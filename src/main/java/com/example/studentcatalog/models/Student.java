@@ -2,6 +2,7 @@ package com.example.studentcatalog.models;
 
 import javax.persistence.*;
 
+
 @Entity
 public class Student {
 

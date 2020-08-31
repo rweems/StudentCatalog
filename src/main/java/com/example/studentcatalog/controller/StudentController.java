@@ -11,10 +11,11 @@ import java.util.Optional;
 @RestController
 
 @CrossOrigin(origins = "http://localhost:3000")
-public class StudentController {
+public class StudentController{
 
 
     private final StudentService studentService;
+
 
 
     public StudentController(StudentService studentService) {
