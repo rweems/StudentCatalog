@@ -24,11 +24,6 @@ public class StudentController{
     }
 
 
-    public void save(Student student){
-        studentService.saveStudent(student);
-
-    }
-
     @GetMapping("/students")
     public List<Student> findAll(){
         return studentService.getAllStudents();
@@ -42,7 +37,7 @@ public class StudentController{
 
     @PostMapping("/add")
     public void add(@RequestBody Student student ){
-        save(student);
+        studentService.saveStudent(student);
     }
 
     @PutMapping("/update/{id}")
