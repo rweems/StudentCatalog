@@ -4,7 +4,6 @@ import com.example.studentcatalog.models.Student;
 import com.example.studentcatalog.service.StudentService;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 import java.util.Optional;
 
 
@@ -24,10 +23,10 @@ public class StudentController{
     }
 
 
-    @GetMapping("/students")
-    public List<Student> findAll(){
-        return studentService.getAllStudents();
-    }
+//    @GetMapping("/students")
+//    public List<Student> findAll(){
+//        return studentService.getAllStudents();
+//    }
 
     @GetMapping("/find/{id}")
     public Student findById(@PathVariable("id") Long id){
@@ -35,10 +34,10 @@ public class StudentController{
         return student.orElse(null);
     }
 
-    @PostMapping("/add")
-    public void add(@RequestBody Student student ){
-        studentService.saveStudent(student);
-    }
+//    @PostMapping("/add")
+//    public void add(@RequestBody Student student ){
+//        studentService.saveStudent(student);
+//    }
 
     @PutMapping("/update/{id}")
     public void updateStudent(@PathVariable Long id, @RequestBody Student newStudent){
