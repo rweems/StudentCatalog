@@ -22,7 +22,7 @@ class ViewProfStudents extends Component {
 
 
     display = () => {
-        axios.get('http://localhost:8080/students').then(res => {
+        axios.get('http://localhost:8081/professor').then(res => {
             const studentList = res.data;
             this.setState({students: studentList});
         })
