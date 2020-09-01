@@ -20,7 +20,6 @@ function goToSingle(input) {
 }
 
 class App extends Component {
-    s
 
     render() {
         return (
