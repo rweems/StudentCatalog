@@ -15,15 +15,15 @@ public class Student {
     private long id;
     private String firstName;
     private String lastName;
-    private long SSN;
+    private int ssn;
 
     public Student() {
     }
 
-    public Student(String firstName, String lastName, long SSN) {
+    public Student(String firstName, String lastName, int ssn) {
         this.firstName = firstName;
         this.lastName = lastName;
-        this.SSN = SSN;
+        this.ssn = ssn;
     }
 
     public long getId() {
@@ -46,11 +46,11 @@ public class Student {
         this.lastName = lastName;
     }
 
-    public long getSSN() {
-        return SSN;
+    public int getSSN() {
+        return ssn;
     }
 
-    public void setSSN(long SSN) {
-        this.SSN = SSN;
+    public void setSSN(int ssn) {
+        this.ssn = ssn;
     }
 }

@@ -12,6 +12,7 @@ import Form from "reactstrap/es/Form";
 import {Button, FormControl, Nav, Navbar} from "react-bootstrap";
 import Student from "./components/Student";
 import UpdateStudent from "./components/UpdateStudent";
+import {AmplifySignOut} from "@aws-amplify/ui-react";
 
 
 function goToSingle(input) {
