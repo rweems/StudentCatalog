@@ -2,6 +2,7 @@ package com.example.professor.service;
 
 import com.example.professor.models.Student;
 import com.example.professor.repository.ProfessorRepository;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -21,6 +22,7 @@ public class ProfessorService {
         professorRepository.save(student);
     }
 
+    @HystrixCommand(fallbackMethod = "error")
     public List<Student> getAllStudents() {
         return professorRepository.findAll();
     }
@@ -42,4 +44,8 @@ public class ProfessorService {
         return professorRepository.findById(Id);
     }
 
+    public String error() {
+        System.out.println("Sorry the professor view is currently under maintenance");
+        return "Sorry the professor view is currently under maintenance";
+    }
 }
