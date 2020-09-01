@@ -23,13 +23,37 @@ class AddStudent extends Component {
         console.log(this.state.firstName);
         console.log(this.state.lastName);
         console.log(this.state.ssn);
-        axios.post('http://localhost:8080/add', student)
-            .then(response => {
-                console.log(response)
-                console.log(response.data)
-            });
 
-        window.location.href = "/students/show";
+        axios('http://localhost:8080/add', {
+            method: 'POST',
+            headers: {'Access-Control-Allow-Origin': '*'},
+            data: {
+                query: `
+                    mutation {
+                        addStudent( createStudent : {
+                            firstName : ${this.state.firstName}
+                            lastName: ${this.state.lastName}
+                            
+                        }){
+                            id
+                            firstName
+                            lastName
+                            SSN
+                        }
+                    }
+                `
+            }
+        }).then((result) => {
+            console.log(result.data)
+
+        });
+        // axios.post('http://localhost:8080/add', student)
+        //     .then(response => {
+        //         console.log(response)
+        //         console.log(response.data)
+        //     });
+
+        // window.location.href = "/students/show";
     };
 
 
