@@ -1,1 +1,3 @@
 # StudentCatalog
+* React
+* Spring Boot
